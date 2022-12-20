@@ -10,11 +10,21 @@ version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
-    mavenLocal()
+}
+
+repositories {
+    maven {
+        name = "GitHubPackages"
+        url = uri("https://maven.pkg.github.com/Felipe-Baz/KotlinLibrary_Studio")
+        credentials {
+            username = System.getenv("GITHUB_USERNAME")
+            password = System.getenv("GITHUB_TOKEN")
+        }
+    }
 }
 
 dependencies {
-    implementation("br.com.baz:KotlinLibraryTutorial:0.1")
+    implementation("br.com.baz:hello_world_library:0.1")
     testImplementation(kotlin("test"))
 
 }
